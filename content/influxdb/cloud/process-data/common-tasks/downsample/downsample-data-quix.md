@@ -32,7 +32,7 @@ The guide uses Python and InfluxDB v2 and v3 Python client libraries and can be 
 ## Pipeline architecture
 The following diagram illustrates how data is passed between processes as it is downsampled:
 
-{{< html-diagram/quix-downsample-pipeline >}}
+{{< html-diagram/influxdb-v2-quix-downsample-pipeline >}}
 
 {{% note %}}
 It is usually more efficient to write raw data directly to Kafka rather than
