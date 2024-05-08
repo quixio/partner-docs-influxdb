@@ -13,7 +13,7 @@ influxdb/v2/tags: [tasks]
 ---
 
 A common practice when processing high volume data is to downsample it before comitting 
-it to InfluxDD to reduce the overall disk usage as data collects over time.
+it to InfluxDB to reduce the overall disk usage as data collects over time.
 
 This guide walks through the process of creating a series of Python services that ingest from an InfluxDB v2 bucket, downsample and publish the data to another InfluxDB v2 bucket. 
 By aggregating data within windows of time, then storing the aggregate values back to InfluxDB, you can reduce 
@@ -51,7 +51,6 @@ already have raw data in InfluxDB that you want to downsample.
 The process described in this guide requires the following:
 
 - InfluxDB v2 with data ready for downsampling. [Use the machine data generator code](#run-the-machine-data-generator) below.
-- InfluxDB v3 ready to receive data.
 - A [Quix Cloud](https://portal.platform.quix.io/self-sign-up/) account or a
   local Apache Kafka or Red Panda installation.
 - Familiarity with basic Python and Docker concepts.
