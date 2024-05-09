@@ -4,12 +4,11 @@ seotitle: Downsample data with Python and Quix Streams
 description: >
   How to create Python service that downsamples data with Quix Streams.
 menu:
-  influxdb_cloud:
+  influxdb_v2:
     name: Quix
-    parent: Downsample data
-    identifier: influxdb_cloud-downsample-quix
-weight: 202
-influxdb/v2/tags: [tasks]
+    parent: Tools & integrations
+    identifier: influxdb_v2-downsample-quix
+weight: 122
 ---
 
 A common practice when processing high volume data is to downsample it before comitting 
@@ -71,7 +70,7 @@ pip install influxdb-client pandas quixstreams<2.5
 ## Prepare InfluxDB buckets
 
 The downsampling process involves two InfluxDB buckets.
-Each bucket has a [retention period](/influxdb/cloud/reference/glossary/#retention-period)
+Each bucket has a [retention period](/influxdb/cloud-serverless/reference/glossary/#retention-period)
 that specifies how long data persists before it expires and is deleted.
 By using two buckets, you can store unmodified, high-resolution data in a bucket
 with a shorter retention period and then downsampled, low-resolution data in a
@@ -150,7 +149,7 @@ Use the `influxdb_client` and `quixstreams` modules to instantiate two clients t
 
 Provide the following credentials for the producer:
 
-- **INFLUXDB_HOST**: [{{< product-name >}} region URL](/influxdb/cloud/reference/regions)
+- **INFLUXDB_HOST**: [{{< product-name >}} region URL](/influxdb/cloud-serverless/reference/regions)
   _(without the protocol)_
 - **INFLUXDB_ORG**: InfluxDB organization name
 - **INFLUXDB_TOKEN**: InfluxDB API token with read and write permissions on the buckets you
@@ -213,7 +212,7 @@ You can find the full code for this process in the
 
 As before, provide the following credentials for the consumer:
 
-- **INFLUXDB_HOST**: [{{< product-name >}} region URL](/influxdb/cloud/reference/regions)
+- **INFLUXDB_HOST**: [{{< product-name >}} region URL](/influxdb/cloud-serverless/reference/regions)
   _(without the protocol)_ 
 - **INFLUXDB_ORG**: InfluxDB organization name
 - **INFLUXDB_TOKEN**: InfluxDB API token with read and write permissions on the buckets you
