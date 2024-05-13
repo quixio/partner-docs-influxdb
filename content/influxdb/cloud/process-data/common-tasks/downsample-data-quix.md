@@ -5,10 +5,10 @@ description: >
   How to create Python service that downsamples data with Quix Streams.
 menu:
   influxdb_cloud:
-    name: Quix
-    parent: Tools & integrations
+    name: Downsample with Quix
+    parent: Common tasks
     identifier: influxdb_cloud-downsample-quix
-weight: 122
+weight: 202
 ---
 
 Use [Quix Streams](https://github.com/quixio/quix-streams) to query time series
