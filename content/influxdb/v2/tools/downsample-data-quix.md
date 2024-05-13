@@ -18,7 +18,7 @@ This guide walks through the process of creating a series of Python services tha
 By aggregating data within windows of time, then storing the aggregate values back to InfluxDB, you can reduce 
 disk usage and costs over time.
 
-The guide uses the InfluxDB v2 and QuixStreams Python client libraries and can be run locally or deployed within Quix Cloud with a free trial. It assumes you have setup a Python project and virtual environment.
+The guide uses the InfluxDB v2 and Quix Streams Python client libraries and can be run locally or deployed within Quix Cloud with a free trial. It assumes you have setup a Python project and virtual environment.
 
 ## Pipeline architecture
 The following diagram illustrates how data is passed between processes as it is downsampled:
@@ -59,7 +59,7 @@ The process described in this guide requires the following:
 Use `pip` to install the following dependencies:
 
 - `influxdb-client` (InfluxDB v2 client library)
-- `quixstreams<2.5` (Quixstreams client library)
+- `quixstreams<2.5` (Quix Streams client library)
 - `pandas` (data analysis and manipulation tool)
 
 
@@ -267,7 +267,7 @@ def send_data_to_influx(message: dict, state: State):
 
 ## ... code trunctated for brevity ...
 
-# We use QuixStreams StreamingDataframe (SDF) to handle every message
+# We use Quix Streams StreamingDataframe (SDF) to handle every message
 # in the Kafka topic by writing it to InfluxDB
 sdf = app.dataframe(input_topic)
 sdf = sdf.update(send_data_to_influx, stateful=True)

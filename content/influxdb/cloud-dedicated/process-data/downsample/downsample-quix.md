@@ -173,7 +173,6 @@ The producer queries for fresh data from InfluxDB at specific intervals. It's co
 ```py
 from influxdb_client_3 import InfluxDBClient3
 from quixstreams import Application
-from quixstreams.models.serializers.quix import JSONSerializer, SerializationContext
 import pandas
 
 # Instantiate an InfluxDBClient3 client configured for your unmodified bucket
@@ -200,8 +199,7 @@ if localdev == 'false':
     # Create a Quix platform-specific application instead (broker address is in-built)
     app = Application(consumer_group=consumer_group_name, auto_create_topics=True)
 
-serializer = JSONSerializer()
-topic = app.topic(name='raw-data', value_serializer='json')
+topic = app.topic(name='raw-data')
 
 ## ... remaining code trunctated for brevity ...
 
