@@ -99,11 +99,10 @@ downsamples it, and then sends it to an output topic that is used to write back 
 
     ```py
     from quixstreams import Application
-    from quixstreams.models.serializers.quix import JSONDeserializer, JSONSerializer
 
     app = Application(consumer_group='downsampling-process', auto_offset_reset='earliest')
-    input_topic = app.topic('raw-data', value_deserializer=JSONDeserializer())
-    output_topic = app.topic('downsampled-data', value_serializer=JSONSerializer())
+    input_topic = app.topic('raw-data')
+    output_topic = app.topic('downsampled-data')
 
     # ...
     ```
@@ -290,7 +289,7 @@ if localdev == 'false':
     # Create a Quix platform-specific application instead (broker address is in-built)
     app = Application(consumer_group=consumer_group_name, auto_create_topics=True)
 
-input_topic = app.topic('downsampled-data', value_deserializer=JSONDeserializer())
+input_topic = app.topic('downsampled-data')
 
 ## ... remaining code trunctated for brevity ...
 
