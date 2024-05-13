@@ -5,7 +5,7 @@ description: >
   downsampled data back to InfluxDB.
 menu:
   influxdb_clustered:
-    name: Use client libraries
+    name: Use InfluxDB client libraries
     parent: Downsample data
 weight: 201
 related:

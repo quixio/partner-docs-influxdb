@@ -6,7 +6,7 @@ description: >
   downsample it, and then write the downsampled data back to InfluxDB.
 menu:
   influxdb_clustered:
-    name: Use Quix
+    name: Use Quix Streams
     parent: Downsample data
     identifier: downsample-quix
 weight: 202
