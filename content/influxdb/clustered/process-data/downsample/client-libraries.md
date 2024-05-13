@@ -5,8 +5,9 @@ description: >
   downsampled data back to InfluxDB.
 menu:
   influxdb_clustered:
-    name: Use InfluxDB client libraries
+    name: Use client libraries
     parent: Downsample data
+    identifier: downsample-influx-client-libraries
 weight: 201
 related:
   - /influxdb/clustered/query-data/sql/aggregate-select/, Aggregate or apply selector functions to data (SQL)
