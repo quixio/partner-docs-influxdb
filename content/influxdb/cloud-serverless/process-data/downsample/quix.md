@@ -1,11 +1,9 @@
 ---
-title: Downsample data stored in InfluxDB using Quix Streams
+title: Use Quix Streams to downsample data
 description: >
   Use [Quix Streams](https://github.com/quixio/quix-streams) to query time series
   data stored in InfluxDB and written to Kafka at regular intervals, continuously
   downsample it, and then write the downsampled data back to InfluxDB.
-menu:
-
 menu:
   influxdb_cloud_serverless:
     name: Use Quix
