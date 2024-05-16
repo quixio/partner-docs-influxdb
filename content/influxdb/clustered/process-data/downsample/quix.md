@@ -1,5 +1,5 @@
 ---
-title: Downsample data stored in InfluxDB using Quix Streams
+title: Use Quix Streams to downsample data
 description: >
   Use [Quix Streams](https://github.com/quixio/quix-streams) to query time series
   data stored in InfluxDB and written to Kafka at regular intervals, continuously
@@ -34,7 +34,7 @@ This guide also assumes you have already
 
 The following diagram illustrates how data is passed between processes as it is downsampled:
 
-{{< html-diagram/influxdb-v3-quix-downsample-pipeline >}}
+{{< html-diagram/quix-downsample-pipeline >}}
 
 {{% note %}}
 It is usually more efficient to write raw data directly to Kafka rather than

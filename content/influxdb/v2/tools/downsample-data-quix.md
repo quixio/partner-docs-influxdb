@@ -2,7 +2,7 @@
 title: Downsample data with Quix Streams
 seotitle: Downsample data with Python and Quix Streams
 description: >
-  How to create Python service that downsamples data with Quix Streams.
+  Use Quix Streams to create Python service that downsamples data stored in InfluxDB.
 menu:
   influxdb_v2:
     name: Quix
@@ -23,7 +23,7 @@ The guide uses the InfluxDB v2 and Quix Streams Python client libraries and can 
 ## Pipeline architecture
 The following diagram illustrates how data is passed between processes as it is downsampled:
 
-{{< html-diagram/influxdb-v2-quix-downsample-pipeline >}}
+{{< html-diagram/quix-downsample-pipeline "v2" >}}
 
 {{% note %}}
 It is usually more efficient to write raw data directly to Kafka rather than
@@ -70,7 +70,7 @@ pip install influxdb-client pandas quixstreams<2.5
 ## Prepare InfluxDB buckets
 
 The downsampling process involves two InfluxDB buckets.
-Each bucket has a [retention period](/influxdb/cloud-serverless/reference/glossary/#retention-period)
+Each bucket has a [retention period](/influxdb/v2/reference/glossary/#retention-period)
 that specifies how long data persists before it expires and is deleted.
 By using two buckets, you can store unmodified, high-resolution data in a bucket
 with a shorter retention period and then downsampled, low-resolution data in a
@@ -149,7 +149,7 @@ Use the `influxdb_client` and `quixstreams` modules to instantiate two clients t
 
 Provide the following credentials for the producer:
 
-- **INFLUXDB_HOST**: [{{< product-name >}} region URL](/influxdb/cloud-serverless/reference/regions)
+- **INFLUXDB_HOST**: [InfluxDB URL](/influxdb/v2/reference/urls/)
   _(without the protocol)_
 - **INFLUXDB_ORG**: InfluxDB organization name
 - **INFLUXDB_TOKEN**: InfluxDB API token with read and write permissions on the buckets you
@@ -212,7 +212,7 @@ You can find the full code for this process in the
 
 As before, provide the following credentials for the consumer:
 
-- **INFLUXDB_HOST**: [{{< product-name >}} region URL](/influxdb/cloud-serverless/reference/regions)
+- **INFLUXDB_HOST**: [InfluxDB URL](/influxdb/v2/reference/urls/)
   _(without the protocol)_ 
 - **INFLUXDB_ORG**: InfluxDB organization name
 - **INFLUXDB_TOKEN**: InfluxDB API token with read and write permissions on the buckets you
@@ -236,9 +236,9 @@ app = Application(consumer_group=consumer_group_name, auto_offset_reset="earlies
 input_topic = app.topic(os.getenv("input", "input-data"))
 
 # Initialize InfluxDB v2 client
-influx2_client = InfluxDBClient(url=influx_host,
-                                token=influx_token,
-                                org=influx_org)
+influx2_client = InfluxDBClient(url={{< influxdb/host >}},
+                                token=API_TOKEN,
+                                org=ORG_NAME)
 
 ## ... remaining code trunctated for brevity ...
 
